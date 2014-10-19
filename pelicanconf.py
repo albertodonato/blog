@@ -12,30 +12,30 @@ RELATIVE_URLS = True
 TIMEZONE = 'UTC'
 
 DEFAULT_LANG = 'en'
-DEFAULT_DATE_FORMAT = '%Y/%m/%d'
+DEFAULT_DATE_FORMAT = '%d %B %Y'
 
 # URL formats
-ARTICLE_URL = 'blog/{slug}'
+ARTICLE_URL = 'blog/{slug}.html'
 ARTICLE_SAVE_AS = 'blog/{slug}.html'
-PAGE_URL = '{slug}'
+PAGE_URL = '{slug}.html'
 PAGE_SAVE_AS = '{slug}.html'
-TAG_URL = 'tags/{slug}'
+TAG_URL = 'tags/{slug}.html'
 TAG_SAVE_AS = 'tags/{slug}.html'
-TAGS_URL = 'tags'
+TAGS_URL = 'tags.html'
+CATEGORY_URL = 'category/{slug}.html'
+CATEGORY_SAVE_URL = 'category/{slug}.html'
 FEED_ALL_ATOM = 'feeds/all.atom.xml'
 CATEGORY_FEED_ATOM = 'feeds/%s.atom.xml'
 TRANSLATION_FEED_ATOM = None
 
 # Blogroll
-LINKS = (
-    ('Google', 'http://www.google.com'),
-    ('Example', 'http://example.com'))
-
+LINKS = ()
 
 # Social widget
 SOCIAL = (
     ('launchpad', 'https://launchpad.net/~ack'),
     ('bitbucket', 'https://bitbucket.org/ack'),
+    ('google+', 'https://plus.google.com/104904437381999058439'),
     ('linkedin', 'https://it.linkedin.com/in/albertodonato'),
     ('rss', SITEURL + '/' + FEED_ALL_ATOM))
 
@@ -51,10 +51,10 @@ DISPLAY_TAGS_ON_SIDEBAR = True
 CC_LICENSE = "CC-BY-NC-SA"
 
 
-STATIC_PATHS = ['images', 'files', 'extra/favicon.ico']
+STATIC_PATHS = ['static/extra', 'static/files', 'static/images']
 
 EXTRA_PATH_METADATA = {
-    'extra/favicon.ico': {'path': 'favicon.ico'}}
+    'static/extra/favicon.ico': {'path': 'favicon.ico'}}
 
 
 THEME = '../pelican-bootstrap3'
@@ -66,7 +66,7 @@ PLUGIN_PATHS = ['../pelican-plugins']
 #            'liquid_tags.include_code', 'liquid_tags.notebook']
 
 
-BOOTSTRAP_THEME = 'cerulean'  # simplex united cerulean slate spacelab
+BOOTSTRAP_THEME = 'cerulean_ubuntu'
 
 BOOTSTRAP_NAVBAR_INVERSE = True
 
