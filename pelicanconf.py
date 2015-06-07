@@ -31,6 +31,7 @@ LINKS = ()
 
 # Social links
 SOCIAL = (
+    ('google+', 'https://plus.google.com/104904437381999058439/'),
     ('bitbucket', 'https://bitbucket.org/ack'),
     ('launchpad', 'https://launchpad.net/~ack'),
     ('rss', SITEURL + '/' + FEED_ALL_ATOM))
@@ -82,3 +83,8 @@ DISPLAY_BREADCRUMBS = False
 CC_LICENSE = "CC-BY-NC-SA"
 
 CUSTOM_CSS = 'static/custom.css'
+
+
+#
+# plugin configurations
+#
