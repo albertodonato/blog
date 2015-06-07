@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 AUTHOR = 'Alberto Donato'
 SITENAME = 'Significant white space'
 SITEURL = 'http://localhost:8000'
@@ -9,17 +7,20 @@ RELATIVE_URLS = True
 TIMEZONE = 'UTC'
 
 DEFAULT_LANG = 'en'
-DEFAULT_DATE_FORMAT = '%d %B %Y'
+DEFAULT_DATE_FORMAT = '%Y-%m-%d'
 
 # URL formats
-ARTICLE_URL = 'blog/{slug}.html'
-ARTICLE_SAVE_AS = 'blog/{slug}.html'
-PAGE_URL = '{slug}.html'
-PAGE_SAVE_AS = '{slug}.html'
-TAG_URL = 'tags/{slug}.html'
+ARTICLE_URL = 'posts/{date:%Y}/{date:%m}/{date:%d}/{slug}'
+ARTICLE_SAVE_AS = 'posts/{date:%Y}/{date:%m}/{date:%d}/{slug}.html'
+PAGE_URL = 'pages/{slug}'
+PAGE_SAVE_AS = 'pages/{slug}.html'
+TAG_URL = 'tags/{slug}'
 TAG_SAVE_AS = 'tags/{slug}.html'
-TAGS_URL = 'tags.html'
-CATEGORY_URL = 'category/{slug}.html'
+CATEGORY_URL = 'category/{slug}'
+CATEGORY_SAVE_AS = 'category/{slug}.html'
+YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
+MONTH_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/{date:%m}/index.html'
+
 CATEGORY_SAVE_URL = 'category/{slug}.html'
 FEED_ALL_ATOM = 'feeds/all.atom.xml'
 CATEGORY_FEED_ATOM = 'feeds/%s.atom.xml'
@@ -47,12 +48,13 @@ DISPLAY_TAGS_ON_SIDEBAR = True
 
 CC_LICENSE = "CC-BY-NC-SA"
 
-
 STATIC_PATHS = [
-    'static/extra', 'static/files', 'static/images', 'static/custom.css']
+    'images', 'files', 'extra/robots.txt', 'extra/custom.css']
 
 EXTRA_PATH_METADATA = {
-    'static/extra/favicon.ico': {'path': 'favicon.ico'}}
+    'extra/robots.txt': {'path': 'robots.txt'},
+    'extra/custom.css': {'path': 'static/custom.css'},
+    'extra/favicon.ico': {'path': 'static/favicon.ico'}}
 
 
 THEME = '../pelican-bootstrap3'
@@ -68,7 +70,7 @@ BOOTSTRAP_THEME = 'cerulean'
 
 BOOTSTRAP_NAVBAR_INVERSE = True
 
-SHOW_ARTICLE_AUTHOR = True
+SHOW_ARTICLE_AUTHOR = False
 SHOW_ARTICLE_CATEGORY = True
 
 DISPLAY_BREADCRUMBS = True
@@ -77,5 +79,3 @@ PYGMENTS_STYLE = 'default'
 # PYGMENTS_RST_OPTIONS = {'linenos': 'inline'}
 
 CUSTOM_CSS = 'static/custom.css'
-
-# ABOUT_ME = 'Alberto Donato'

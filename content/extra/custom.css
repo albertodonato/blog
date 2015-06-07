@@ -1,0 +1,60 @@
+body {
+    font-family: "Ubuntu Light";
+    font-size: 18px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Ubuntu";
+}
+
+code,
+kbd,
+pre,
+samp {
+    font-family: "Ubuntu Mono";
+    font-size: 18px;
+}
+
+aside {
+    font-size: 80%;
+}
+
+.navbar-brand {
+    font-family: "Ubuntu Medium";
+    font-style: italic;
+    font-size: 30px;
+}
+
+.post-info {
+    font-size: 80%;
+}
+
+.post-info .label {
+    margin-left: 1em;
+    margin-right: 0.5em;
+}
+
+.tag-0 {
+    font-size: 20px;
+}
+
+.tag-1 {
+    font-size: 16px;
+}
+
+.tag-2 {
+    font-size: 14px;
+}
+
+.tag-3 {
+    font-size: 12px;
+}
+
+.tag-4 {
+    font-size: 10px;
+}
