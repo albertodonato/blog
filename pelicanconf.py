@@ -36,6 +36,8 @@ SOCIAL = (
     ('launchpad', 'https://launchpad.net/~ack'),
     ('rss', SITEURL + '/' + FEED_ALL_ATOM))
 
+DIRECT_TEMPLATES = ('index', 'categories', 'authors', 'archives', 'search')
+
 DEFAULT_PAGINATION = 5
 
 DEFAULT_CATEGORY = 'misc'
@@ -56,10 +58,7 @@ THEME = '../pelican-themes/pelican-bootstrap3'
 
 PLUGIN_PATHS = ['../pelican-plugins']
 
-# PLUGINS = ['liquid_tags.img', 'liquid_tags.video',
-#            'liquid_tags.youtube', 'liquid_tags.vimeo',
-#            'liquid_tags.include_code', 'liquid_tags.notebook']
-
+PLUGINS = ['tipue_search']
 
 PYGMENTS_STYLE = 'default'
 # PYGMENTS_RST_OPTIONS = {'linenos': 'inline'}

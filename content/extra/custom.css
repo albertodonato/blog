@@ -67,3 +67,10 @@ aside {
     content: " ";
     padding-left: 16.4531px; /* space because of missing icon */
 }
+
+#tipue_search_input {
+    margin-top: 10px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    background-position: 10px 8px;
+}
