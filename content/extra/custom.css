@@ -39,22 +39,31 @@ aside {
     margin-right: 0.5em;
 }
 
+.tagcloud {
+    font-size: 16px;
+}
+
 .tag-0 {
     font-size: 20px;
 }
 
 .tag-1 {
-    font-size: 16px;
+    font-size: 140%;
 }
 
 .tag-2 {
-    font-size: 14px;
+    font-size: 120%;
 }
 
 .tag-3 {
-    font-size: 12px;
+    font-size: 100%;
 }
 
 .tag-4 {
-    font-size: 10px;
+    font-size: 80%;
+}
+
+.fa-launchpad-square::before {
+    content: " ";
+    padding-left: 16.4531px; /* space because of missing icon */
 }
