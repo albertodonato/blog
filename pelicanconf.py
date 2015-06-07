@@ -1,7 +1,4 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*- #
-
-from __future__ import unicode_literals
 
 AUTHOR = 'Alberto Donato'
 SITENAME = 'Significant white space'
@@ -51,7 +48,8 @@ DISPLAY_TAGS_ON_SIDEBAR = True
 CC_LICENSE = "CC-BY-NC-SA"
 
 
-STATIC_PATHS = ['static/extra', 'static/files', 'static/images']
+STATIC_PATHS = [
+    'static/extra', 'static/files', 'static/images', 'static/custom.css']
 
 EXTRA_PATH_METADATA = {
     'static/extra/favicon.ico': {'path': 'favicon.ico'}}
@@ -66,7 +64,7 @@ PLUGIN_PATHS = ['../pelican-plugins']
 #            'liquid_tags.include_code', 'liquid_tags.notebook']
 
 
-BOOTSTRAP_THEME = 'cerulean_ubuntu'
+BOOTSTRAP_THEME = 'cerulean'
 
 BOOTSTRAP_NAVBAR_INVERSE = True
 
@@ -78,6 +76,6 @@ DISPLAY_BREADCRUMBS = True
 PYGMENTS_STYLE = 'default'
 # PYGMENTS_RST_OPTIONS = {'linenos': 'inline'}
 
-# CUSTOM_CSS = 'static/custom.css'
+CUSTOM_CSS = 'static/custom.css'
 
 # ABOUT_ME = 'Alberto Donato'

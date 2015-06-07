@@ -1,0 +1,25 @@
+body {
+    font-family: "Ubuntu";
+    font-size: 18px;
+
+}
+
+code,
+kbd,
+pre,
+samp {
+    font-family: "Ubuntu Mono";
+    font-size: 15px;
+}
+
+aside {
+    font-size: 80%;
+}
+
+.navbar-brand {
+    font-size: 22px;
+}
+
+.post-info {
+    font-size: 80%;
+}
