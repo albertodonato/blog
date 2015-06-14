@@ -33,6 +33,7 @@ LINKS = ()
 SOCIAL = (
     ('bitbucket', 'https://bitbucket.org/ack'),
     ('launchpad', 'https://launchpad.net/~ack'),
+    ('github', 'https://github.com/theack'),
     ('google+', 'https://plus.google.com/104904437381999058439/'))
 
 DIRECT_TEMPLATES = ('index', 'categories', 'authors', 'archives')
@@ -62,8 +63,6 @@ SITE_SUBTEXT = 'this is where my brain dumps stuff'
 
 LICENSE_NAME = 'CC BY-SA 4.0'
 LICENSE_URL = 'https://creativecommons.org/licenses/by-sa/4.0/'
-MENU_ITEMS = ()
-# GITHUB_ADDRESS = 'https://github.com/theack'
 
 PAGES_ON_MENU = True
 CATEGORIES_ON_MENU = True
