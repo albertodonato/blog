@@ -33,7 +33,7 @@ LINKS = ()
 SOCIAL = (
     ('bitbucket', 'https://bitbucket.org/ack'),
     ('launchpad', 'https://launchpad.net/~ack'),
-    ('github', 'https://github.com/theack'),
+    ('github', 'https://github.com/albertodonato'),
     ('google+', 'https://plus.google.com/104904437381999058439/'))
 
 DIRECT_TEMPLATES = ('index', 'categories', 'tags', 'authors', 'archives')
