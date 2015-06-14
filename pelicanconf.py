@@ -40,12 +40,10 @@ DIRECT_TEMPLATES = ('index', 'categories', 'tags', 'authors', 'archives')
 
 DEFAULT_CATEGORY = 'misc'
 
-STATIC_PATHS = [
-    'images', 'files', 'extra/robots.txt', 'extra/custom.css']
+STATIC_PATHS = ['images', 'files', 'extra/robots.txt']
 
 EXTRA_PATH_METADATA = {
     'extra/robots.txt': {'path': 'robots.txt'},
-    'extra/custom.css': {'path': 'static/custom.css'},
     'extra/favicon.ico': {'path': 'static/favicon.ico'}}
 
 THEME = '../pelican-alchemy/alchemy'
