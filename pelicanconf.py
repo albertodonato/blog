@@ -1,6 +1,6 @@
 AUTHOR = 'Alberto Donato'
 SITENAME = 'Significant white space'
-SITEURL = 'http://localhost:8000'
+SITEURL = 'http://localhost:8000/blog'
 
 RELATIVE_URLS = True
 

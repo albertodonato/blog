@@ -1,0 +1,13 @@
+============
+Blog is live
+============
+
+:date: 2015-06-07
+:category: misc
+:summary: Check .... 1, 2, 3 ...
+
+Ok, it works!
+
+Cool, I have a blog now. Now it's time to put something on it. It'll mostly be tech articles, and despite the title, it's not going to be just about python.
+
+Stay tuned.

@@ -5,7 +5,7 @@ from pelicanconf import *
 
 SITEURL = 'http://ack.mine.nu/blog'
 
-RELATIVE_URLS = False
+RELATIVE_URLS = True
 
 DELETE_OUTPUT_DIRECTORY = True
 
