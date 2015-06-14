@@ -15,8 +15,8 @@ ARTICLE_URL = 'posts/{date:%Y}/{date:%m}/{date:%d}/{slug}.html'
 ARTICLE_SAVE_AS = 'posts/{date:%Y}/{date:%m}/{date:%d}/{slug}.html'
 PAGE_URL = '{slug}.html'
 PAGE_SAVE_AS = '{slug}.html'
-# TAG_URL = 'tag/{slug}.html'
-# TAG_SAVE_AS = 'tag/{slug}.html'
+TAG_URL = 'tag/{slug}.html'
+TAG_SAVE_AS = 'tag/{slug}.html'
 CATEGORY_URL = 'category/{slug}.html'
 CATEGORY_SAVE_AS = 'category/{slug}.html'
 YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
@@ -36,8 +36,7 @@ SOCIAL = (
     ('github', 'https://github.com/theack'),
     ('google+', 'https://plus.google.com/104904437381999058439/'))
 
-DIRECT_TEMPLATES = ('index', 'categories', 'authors', 'archives')
-
+DIRECT_TEMPLATES = ('index', 'categories', 'tags', 'authors', 'archives')
 
 DEFAULT_CATEGORY = 'misc'
 
