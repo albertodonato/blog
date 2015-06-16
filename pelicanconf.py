@@ -46,7 +46,7 @@ EXTRA_PATH_METADATA = {
     'extra/robots.txt': {'path': 'robots.txt'},
     'extra/favicon.ico': {'path': 'static/favicon.ico'}}
 
-THEME = '../pelican-alchemy/alchemy'
+THEME = '../pelican-chemistry'
 
 PLUGIN_PATHS = ['../pelican-plugins']
 
