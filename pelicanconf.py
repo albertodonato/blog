@@ -38,6 +38,7 @@ SOCIAL = (
 
 DIRECT_TEMPLATES = ('index', 'categories', 'tags', 'authors', 'archives')
 
+USE_FOLDER_AS_CATEGORY = False
 DEFAULT_CATEGORY = 'misc'
 
 STATIC_PATHS = ['images', 'files', 'extra/robots.txt']
