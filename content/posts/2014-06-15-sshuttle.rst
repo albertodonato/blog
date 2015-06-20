@@ -1,0 +1,110 @@
+==============
+Zero-setup VPN
+==============
+
+:date: 2015-06-15
+:category: network
+:tags: vpn, ssh, server
+
+If you're often around and need to connect to your home or office from you
+laptop, a `VPN <https://en.wikipedia.org/wiki/Virtual_private_network>`_ is an
+essential tool.
+
+Even though open-source projects like `OpenVPN <https://openvpn.net/>`_ have
+made it quite easy to set up your own VPN server and configure clients to
+connect to it, it still requires some setup, and an additional opened port for
+the VPN service.
+
+There's a pretty handy tool, though, that lets you connect to a remote network
+without needing any server-side configuration: `sshuttle
+<https://github.com/apenwarr/sshuttle>`_.
+
+``sshuttle`` is basically VPN-over-SSH. SSH is usually available out of the box
+on any server machine (physical machines, cloud instances, containers), and can
+be easily installed where it is not (like desktop machines) with a single
+command.
+
+``sshuttle`` requires no sepup, no special privileges on the remote host, if
+you can SSH into a machine, you can use ``sshuttle`` too.
+It creates an SSH tunnel and forwards traffic for specific networks from the
+local machine to the remote server.
+
+
+Creating a VPN connection
+-------------------------
+
+``sshuttle`` is pretty simple to use, for instance:
+
+.. code-block:: console
+
+  $ sshuttle 10.0.1.0/24 10.0.2.0/24 --remote=remote.example.com --auto-hosts
+
+will forward traffic for the ``10.0.1.0/24`` and ``10.0.2.0/24`` subnets
+through ``remote.example.com``, so that all machines on that network that are
+accessible from the server machine, will be accessible from the remote host
+too.
+
+The ``--auto-hosts`` option is a pretty handy one, it will automatically add
+discovered hostnames to the machine ``/etc/hosts``, so that hostnames can be
+used in place of IP addresses.
+
+Since ``sshuttle`` uses SSH under the hood, any user configuration from
+``~/.ssh/config`` is respected.
+
+
+Using a lot of ``sshuttle``\s?
+------------------------------
+
+I've been using ``sshuttle`` a lot, to connect to many different networks, so I
+soon ended up with various shell scripts to start/stop different connections.
+
+Eventually, I thought it would be useful to have a single tool to manage all
+``shuttle`` connections, and easily check out which ones are connected.
+
+So I wrote `sshoot <https://bitbucket.org/ack/sshoot>`_.
+
+``sshoot`` is basically a connection manager for ``sshuttle``, it lets you
+define profiles with the same options of the ``sshuttle`` command line:
+
+.. code-block:: console
+
+   $ sshoot create --remote=remote.example.com --auto-hosts vpn1 10.0.1.0/24 10.0.2.0/24 
+
+and start the VPN connection with:
+
+.. code-block:: console
+
+  $ sshoot start vpn1
+  Profile started
+
+To check which profiles are defined, and which are connected, simply
+
+.. code-block:: console
+
+  $ sshoot list
+     Profile  Remote host          Subnets
+  ----------------------------------------------------------
+   * vpn1     remote.example.com   10.0.1.0/24 10.0.2.0/24  
+     vpn2     remote2.example.com  192.168.9.0/24
+
+where the first profile is shown as connected.
+
+
+``sshoot`` can be easily installed from source:
+
+.. code-block:: console
+
+  $ git clone https://bitbucket.org/ack/sshoot.git
+  $ cd sshoot
+  $ python3 setup.py install
+
+If you're using Ubuntu, a `PPA
+<https://launchpad.net/~sshoot/+archive/ubuntu/stable>`_ with pre-build
+packages is also available. To install it, run
+
+.. code-block:: console
+
+  $ sudo apt-add-repository ppa:sshoot/stable
+  $ sudo apt-get install sshoot
+
+That's it. Hope that helps!
