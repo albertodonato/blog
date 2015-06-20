@@ -105,6 +105,7 @@ packages is also available. To install it, run
 .. code-block:: console
 
   $ sudo apt-add-repository ppa:sshoot/stable
+  $ sudo apt-get update
   $ sudo apt-get install sshoot
 
 That's it. Hope that helps!
