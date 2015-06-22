@@ -61,10 +61,9 @@ soon ended up with various shell scripts to start/stop different connections.
 Eventually, I thought it would be useful to have a single tool to manage all
 ``shuttle`` connections, and easily check out which ones are connected.
 
-So I wrote `sshoot <https://bitbucket.org/ack/sshoot>`_.
-
-``sshoot`` is basically a connection manager for ``sshuttle``, it lets you
-define profiles with the same options of the ``sshuttle`` command line:
+So I wrote `sshoot <https://bitbucket.org/ack/sshoot>`_. ``sshoot`` is
+basically a connection manager for ``sshuttle``, it lets you define profiles
+with the same options of the ``sshuttle`` command line:
 
 .. code-block:: console
 
