@@ -6,17 +6,18 @@ Zero-setup VPN
 :category: network
 :tags: vpn, ssh, server
 
-If you're often around and need to connect to your home or office from you
-laptop, a `VPN <https://en.wikipedia.org/wiki/Virtual_private_network>`_ is an
-essential tool.
+`VPN <https://en.wikipedia.org/wiki/Virtual_private_network>`_\s are a great
+tool to access resources on a remote network, as if they were local.
+
+Working remotely, I use them a lot, and even to access my home network when I'm
+away.
 
 Even though open-source projects like `OpenVPN <https://openvpn.net/>`_ have
 made it quite easy to set up your own VPN server and configure clients to
 connect to it, it still requires some setup, and an additional opened port for
 the VPN service.
 
-There's a pretty handy tool, though, that lets you connect to a remote network
-without needing any server-side configuration: `sshuttle
+A pretty handy VPN tool I've been using quite a lot lately is `sshuttle
 <https://github.com/apenwarr/sshuttle>`_.
 
 ``sshuttle`` is basically VPN-over-SSH. SSH is usually available out of the box
@@ -24,10 +25,10 @@ on any server machine (physical machines, cloud instances, containers), and can
 be easily installed where it is not (like desktop machines) with a single
 command.
 
-``sshuttle`` requires no sepup, no special privileges on the remote host, if
-you can SSH into a machine, you can use ``sshuttle`` too.
-It creates an SSH tunnel and forwards traffic for specific networks from the
-local machine to the remote server.
+``sshuttle`` requires no server-side setup or special privileges on the remote
+host: if you can SSH into a machine, you can use ``sshuttle`` too.  It creates
+an SSH tunnel and forwards traffic for specific networks from the local machine
+to the remote server.
 
 
 Creating a VPN connection
@@ -55,28 +56,30 @@ Since ``sshuttle`` uses SSH under the hood, any user configuration from
 Using a lot of ``sshuttle``\s?
 ------------------------------
 
-I've been using ``sshuttle`` a lot, to connect to many different networks, so I
-soon ended up with various shell scripts to start/stop different connections.
+After ending up with various shell scripts to start/stop ``sshuttle``
+connections to different networks (with different configurations), I thought
+I'd write a simple tool to manage all ``shuttle`` connections, and easily check
+out which ones are connected: it's called `sshoot
+<https://bitbucket.org/ack/sshoot>`_.
 
-Eventually, I thought it would be useful to have a single tool to manage all
-``shuttle`` connections, and easily check out which ones are connected.
-
-So I wrote `sshoot <https://bitbucket.org/ack/sshoot>`_. ``sshoot`` is
-basically a connection manager for ``sshuttle``, it lets you define profiles
-with the same options of the ``sshuttle`` command line:
+``sshoot`` is basically a connection manager for ``sshuttle``: it lets you
+define profiles, using the same command line options that would be passed to
+``sshuttle``:
 
 .. code-block:: console
 
    $ sshoot create --remote=remote.example.com --auto-hosts vpn1 10.0.1.0/24 10.0.2.0/24 
 
-and start the VPN connection with:
+and start/stop the connection using the profile name:
 
 .. code-block:: console
 
   $ sshoot start vpn1
   Profile started
+  $ sshoot stop vpn1
+  Profile stopped
 
-To check which profiles are defined, and which are connected, simply
+It's also possible to check which profiles are defined and connected
 
 .. code-block:: console
 
@@ -86,8 +89,11 @@ To check which profiles are defined, and which are connected, simply
    * vpn1     remote.example.com   10.0.1.0/24 10.0.2.0/24  
      vpn2     remote2.example.com  192.168.9.0/24
 
-where the first profile is shown as connected.
+In this case, the first profile is currently connected.
 
+
+Installing ``sshoot``
+---------------------
 
 ``sshoot`` can be easily installed from source:
 
@@ -97,9 +103,9 @@ where the first profile is shown as connected.
   $ cd sshoot
   $ python3 setup.py install
 
-If you're using Ubuntu, a `PPA
-<https://launchpad.net/~sshoot/+archive/ubuntu/stable>`_ with pre-build
-packages is also available. To install it, run
+For latest Ubuntu releases, packages are also available from the `PPA
+<https://launchpad.net/~sshoot/+archive/ubuntu/stable>`_
+To install from packages:
 
 .. code-block:: console
 
@@ -107,4 +113,4 @@ packages is also available. To install it, run
   $ sudo apt-get update
   $ sudo apt-get install sshoot
 
-That's it. Hope that helps!
+That's it!

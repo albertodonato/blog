@@ -8,6 +8,6 @@ Blog is live
 
 Ok, it works!
 
-Cool, I have a blog now. Now it's time to put something on it. It'll mostly be tech articles, and despite the title, it's not going to be just about python.
+Cool, I have a blog now. It's time to put something on it. It'll mostly be tech posts about software, stuff I do and find interesting. And despite the title, it's not going to be just about Python.
 
 Stay tuned.
