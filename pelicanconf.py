@@ -51,12 +51,11 @@ THEME = '../pelican-chemistry'
 
 PLUGIN_PATHS = ['../pelican-plugins']
 
-PLUGINS = ['sitemap']
+PLUGINS = ['sitemap', 'org_reader']
 
 #
 # theme-specific settings
 #
-
 SITE_SUBTEXT = 'this is where my brain dumps stuff'
 
 LICENSE_NAME = 'CC BY-SA 4.0'
@@ -68,9 +67,8 @@ TAGS_ON_MENU = True
 ARCHIVES_ON_MENU = True
 
 #
-# plugin configs
+# plugin: sitemap
 #
-
 SITEMAP = {
     'format': 'xml',
     'priorities': {
