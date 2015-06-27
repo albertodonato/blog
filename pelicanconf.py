@@ -51,7 +51,7 @@ THEME = '../pelican-chemistry'
 
 PLUGIN_PATHS = ['../pelican-plugins']
 
-PLUGINS = ['sitemap', 'org_reader']
+PLUGINS = ['sitemap']
 
 #
 # theme-specific settings
