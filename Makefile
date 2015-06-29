@@ -15,7 +15,7 @@ FTP_TARGET_DIR=/
 SSH_HOST=digitalocean
 SSH_PORT=22
 SSH_USER=ack
-SSH_TARGET_DIR=/var/www/html/blog
+SSH_TARGET_DIR=/usr/share/nginx/html/blog
 
 S3_BUCKET=my_s3_bucket
 

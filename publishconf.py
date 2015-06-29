@@ -3,9 +3,9 @@ import sys
 sys.path.append(os.curdir)
 from pelicanconf import *
 
-SITEURL = 'http://ack.mine.nu/blog'
+SITEURL = 'https://albertodonato.net/blog'
 FEED_DOMAIN = SITEURL
-RELATIVE_URLS = False
+RELATIVE_URLS = True
 
 DELETE_OUTPUT_DIRECTORY = True
 
