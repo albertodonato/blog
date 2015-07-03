@@ -7,15 +7,15 @@ Zero-setup VPN
 :tags: vpn, ssh, server
 
 `VPN <https://en.wikipedia.org/wiki/Virtual_private_network>`_\s are a great
-tool to access resources on a remote network, as if they were local.
+tool to access resources on a remote network as if they were local.
 
 Working remotely, I use them a lot, and even to access my home network when I'm
 away.
 
 Even though open-source projects like `OpenVPN <https://openvpn.net/>`_ have
 made it quite easy to set up your own VPN server and configure clients to
-connect to it, it still requires some setup, and an additional opened port for
-the VPN service.
+connect to it, they still require some setup, and an additional opened port
+for the VPN service.
 
 A pretty handy VPN tool I've been using quite a lot lately is `sshuttle
 <https://github.com/apenwarr/sshuttle>`_.
@@ -45,9 +45,9 @@ through ``remote.example.com``, so that all machines on that network that are
 accessible from the server machine, will be accessible from the remote host
 too.
 
-The ``--auto-hosts`` option is a pretty handy one, it will automatically add
-discovered hostnames to the machine ``/etc/hosts``, so that hostnames can be
-used in place of IP addresses.
+The ``--auto-hosts`` option is a pretty handy one: it automatically adds
+discovered hostnames to the machine's ``/etc/hosts``, so that they can be used
+in place of IP addresses.
 
 Since ``sshuttle`` uses SSH under the hood, any user configuration from
 ``~/.ssh/config`` is respected.
