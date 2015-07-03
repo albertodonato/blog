@@ -104,7 +104,7 @@ Installing ``sshoot``
   $ python3 setup.py install
 
 For latest Ubuntu releases, packages are also available from the `PPA
-<https://launchpad.net/~sshoot/+archive/ubuntu/stable>`_
+<https://launchpad.net/~sshoot/+archive/ubuntu/stable>`_.
 To install from packages:
 
 .. code-block:: console
