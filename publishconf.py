@@ -5,7 +5,7 @@ from pelicanconf import *
 
 SITEURL = 'https://albertodonato.net/blog'
 FEED_DOMAIN = SITEURL
-RELATIVE_URLS = True
+RELATIVE_URLS = False
 
 DELETE_OUTPUT_DIRECTORY = True
 
