@@ -60,12 +60,12 @@ TAGLINE = 'this is where my brain dumps stuff'
 LICENSE_NAME = 'CC BY-SA 4.0'
 LICENSE_URL = 'https://creativecommons.org/licenses/by-sa/4.0/'
 
-FAVICON_URL = '/favicon.png'
-
 DISPLAY_PAGES_ON_MENU = True
 CATEGORIES_LINK_ON_MENU = True
 TAGS_LINK_ON_MENU = True
 ARCHIVES_LINK_ON_MENU = True
+
+LOCAL_RESOURCES = True
 
 #
 # plugin: sitemap
