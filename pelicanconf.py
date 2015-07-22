@@ -41,11 +41,10 @@ DIRECT_TEMPLATES = ('index', 'categories', 'tags', 'authors', 'archives')
 USE_FOLDER_AS_CATEGORY = False
 DEFAULT_CATEGORY = 'misc'
 
-STATIC_PATHS = ['images', 'files', 'extra/robots.txt', 'extra/favicon.png']
+STATIC_PATHS = ['images', 'files', 'extra/robots.txt']
 
 EXTRA_PATH_METADATA = {
-    'extra/robots.txt': {'path': 'robots.txt'},
-    'extra/favicon.png': {'path': 'favicon.png'}}
+    'extra/robots.txt': {'path': 'robots.txt'}}
 
 THEME = '../pelican-chemistry'
 
@@ -60,7 +59,8 @@ TAGLINE = 'this is where my brain dumps stuff'
 
 LICENSE_NAME = 'CC BY-SA 4.0'
 LICENSE_URL = 'https://creativecommons.org/licenses/by-sa/4.0/'
-FAVICON_URL = 'favicon.png'
+
+FAVICON_URL = '/favicon.png'
 
 DISPLAY_PAGES_ON_MENU = True
 CATEGORIES_LINK_ON_MENU = True
