@@ -2,10 +2,9 @@
 Twisted-like unit testing for asyncio
 =====================================
 
-:date: 2015-08-09
+:date: 2015-08-25
 :category: development
 :tags: asyncio, python, twisted, testing, unittest
-:status: draft
 
 Recently I've been porting some code for a personal project from `Twisted
 <https://twistedmatrix.com/>`_ to the python3 builtin `asyncio
@@ -29,6 +28,7 @@ result of the asynchronous call. For example:
 
 .. code-block:: python
 
+  # Twisted
   def test_async_call(self):
       deferred = call_under_test()
   
@@ -42,6 +42,7 @@ The same can be written more concisely using ``@inlineCallbacks``:
       
 .. code-block:: python
 
+  # Twisted
   @inlineCallbacks
   def test_async_call(self):
       result = yield call_under_test()
@@ -57,14 +58,16 @@ directly, running the method under test under it:
 
 .. code-block:: python
 
+  # asyncio
   def test_async_call(self):
       loop = asyncio.get_event_loop()
       result = loop.run_until_complete(call_under_test())
       self.assertEqual(result, 19)
 
-That's fine if you're testing a single call, but it gets cumbersome
-when you have multiple calls, possibly with depending on the result of the
-previous one.
+That's fine if you're testing a single call, but it gets cumbersome when you
+have multiple calls, possibly with depending on the result of the previous one,
+or when an asynchronous function calls others. In this case there might not be
+a single ``Future`` to wait for, and tests can easily become intricated.
 
 Luckily, it wasn't to hard to implement a test behavior like the one provided
 by Twisted with asyncio, so I created a `LoopTestCase
@@ -99,12 +102,13 @@ So the test case above simply becomes something like:
 
 .. code-block:: python
 
+  # asyncio
   def test_async_call(self):
       result = yield from call_under_test()
       self.assertEqual(result, 19)
 
 Notice that there's no need to decorate the method as ``@coroutine`` (like with
-Twited's ``@inlineCallbacks``).
+Twisted's ``@inlineCallbacks``).
 
 
 Controlling time
@@ -120,6 +124,7 @@ forward.
 
 .. code-block:: python
 
+  # Twisted
   def test_call_later(self):
       calls = []
       clock = Clock()
@@ -148,6 +153,7 @@ With this addition, the previous test looks pretty much the same with asyncio:
 
 .. code-block:: python
 
+  # asyncio
   def test_call_later(self):
       calls = []
       self.loop.call_later(5, calls.append, True)
@@ -163,6 +169,7 @@ Let's consider, as an example, a class that executes a given function at periodi
 
 .. code-block:: python
 
+  # asyncio
   def test_periodic(self):
       calls = []
       call = PeriodicCall(self.loop, calls.append, True)
@@ -176,6 +183,5 @@ Let's consider, as an example, a class that executes a given function at periodi
 
 ``PeriodicCall`` (again from my `ToolRack
 <https://bitbucket.org/ack/toolrack>`_ library) is basically a port of
-Twisted ``LoopingCall`` to asyncio. The ``start()`` method calls the function
-and schedules the next execution after the specified time.  The test looks
-pretty straightforward, doesn't it?
+Twisted's ``LoopingCall`` to asyncio. The ``start()`` method calls the function
+and schedules the next execution after the specified time.
