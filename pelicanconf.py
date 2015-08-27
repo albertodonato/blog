@@ -23,8 +23,6 @@ YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
 MONTH_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/{date:%m}/index.html'
 CATEGORY_SAVE_URL = 'category/{slug}.html'
 
-FEED_DOMAIN = SITEURL
-
 # Links section
 LINKS = ()
 
