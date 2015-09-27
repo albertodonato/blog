@@ -12,10 +12,10 @@ FTP_HOST=localhost
 FTP_USER=anonymous
 FTP_TARGET_DIR=/
 
-SSH_HOST=digitalocean
+SSH_HOST=albertodonato.net
 SSH_PORT=22
 SSH_USER=ack
-SSH_TARGET_DIR=/usr/share/nginx/html/blog
+SSH_TARGET_DIR=/home/ack/html/blog
 
 S3_BUCKET=my_s3_bucket
 
