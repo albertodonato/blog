@@ -47,7 +47,7 @@ THEME = '../pelican-chemistry'
 
 PLUGIN_PATHS = ['../pelican-plugins']
 
-PLUGINS = ['sitemap']
+PLUGINS = ['headerid.headerid', 'sitemap']
 
 #
 # theme-specific settings
@@ -80,3 +80,8 @@ SITEMAP = {
         'pages': 'monthly'
     }
 }
+
+#
+# plugin: headerid
+#
+HEADERID_LINK_CHAR = '¶'
