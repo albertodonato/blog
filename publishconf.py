@@ -5,14 +5,13 @@ from pelicanconf import *
 
 SITEURL = 'https://albertodonato.net/blog'
 FEED_DOMAIN = SITEURL
-FAVICON_URL = 'https://albertodonato.net/favicon.png'
 RELATIVE_URLS = False
 
 DELETE_OUTPUT_DIRECTORY = True
-
-GOOGLE_ANALYTICS = 'UA-64608830-1'
 
 #
 # theme-specific settings
 #
 LOCAL_RESOURCES = False
+FAVICON_URL = 'https://albertodonato.net/favicon.png'
+GOOGLE_ANALYTICS = 'UA-64608830-1'
