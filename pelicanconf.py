@@ -33,7 +33,8 @@ SOCIAL = (
     ('github', 'https://github.com/albertodonato'),
     ('google+', 'https://plus.google.com/104904437381999058439/'))
 
-DIRECT_TEMPLATES = ('index', 'categories', 'tags', 'authors', 'archives')
+DIRECT_TEMPLATES = (
+    'index', 'categories', 'tags', 'authors', 'archives', 'search')
 
 USE_FOLDER_AS_CATEGORY = False
 DEFAULT_CATEGORY = 'misc'
@@ -47,7 +48,7 @@ THEME = '../pelican-chemistry'
 
 PLUGIN_PATHS = ['../pelican-plugins']
 
-PLUGINS = ['headerid.headerid', 'sitemap']
+PLUGINS = ['headerid.headerid', 'tipue_search', 'sitemap']
 
 #
 # theme-specific settings
