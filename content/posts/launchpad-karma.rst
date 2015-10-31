@@ -26,9 +26,9 @@ running for a while and just collecting data in a SQLite database, I finally
 got some time to extend it to also generate a page with graphs. You can see the
 result `here <https://albertodonato.net/launchpad-karma>`_.
 
-If you want to track your own Karma, the script is available on
-`Bitbucket <https://bitbucket.org/ack/launchpad-karma>`_; is trivial
-to set up and run daily via ``cron``. By default, it both fetches the
-current value (storing it into the database) and regenerate the graph
-page. Just make the target directory available via static file serve
-on your web server and you're all set.
+If you want to track your own Karma, the script is available on `Bitbucket
+<https://bitbucket.org/ack/launchpad-karma>`_; it is trivial to set up and run
+daily via ``cron``. By default, it both fetches the current value (storing it
+into the database) and regenerate the graph page. Just make the target
+directory available via static file serve on your web server and you're all
+set.
