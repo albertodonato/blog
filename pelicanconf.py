@@ -11,17 +11,24 @@ DEFAULT_PAGINATION = 5
 DEFAULT_DATE_FORMAT = '%Y-%m-%d'
 
 # URL formats
-ARTICLE_URL = 'posts/{date:%Y}/{date:%m}/{date:%d}/{slug}.html'
+ARTICLE_URL = 'posts/{date:%Y}/{date:%m}/{date:%d}/{slug}'
 ARTICLE_SAVE_AS = 'posts/{date:%Y}/{date:%m}/{date:%d}/{slug}.html'
-PAGE_URL = '{slug}.html'
+PAGE_URL = '{slug}'
 PAGE_SAVE_AS = '{slug}.html'
-TAG_URL = 'tag/{slug}.html'
+TAGS_URL = 'tags'
+TAGS_SAVE_AS = 'tags.html'
+TAG_URL = 'tag/{slug}'
 TAG_SAVE_AS = 'tag/{slug}.html'
-CATEGORY_URL = 'category/{slug}.html'
+CATEGORIES_URL = 'categories'
+CATEGORIES_SAVE_AS = 'categories.html'
+CATEGORY_URL = 'category/{slug}'
 CATEGORY_SAVE_AS = 'category/{slug}.html'
+YEAR_ARCHIVE_URL = 'posts/{date:%Y}/index'
 YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
+MONTH_ARCHIVE_URL = 'posts/{date:%Y}/{date:%m}/index'
 MONTH_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/{date:%m}/index.html'
-CATEGORY_SAVE_URL = 'category/{slug}.html'
+DAY_ARCHIVE_URL = 'posts/{date:%Y}/{date:%m}/{date:%d}/index'
+DAY_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/{date:%m}/{date:%d}/index.html'
 
 # Links section
 LINKS = ()
