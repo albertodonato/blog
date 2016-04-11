@@ -4,7 +4,7 @@ Install all needed packages in one go
 
 :date: 2016-04-09
 :category: howto
-:tags: packaging, deb, ubuntu, desktop
+:tags: deb, desktop, packaging, ubuntu
 
 Installing a new workstation (or reinstalling one) is quite a boring task; the
 OS setup itself is pretty quick, but then you have to install all the tools
