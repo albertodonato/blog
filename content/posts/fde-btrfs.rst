@@ -28,14 +28,13 @@ On the other hand, `Btrfs` volumes are not generic space pools, they can't be
 used to host other filesystem types, so for instance for swap, a separate
 partition is needed.
 
-When Ubuntu 16.04 (Xenial) hit its final beta (now it's actually been
-officially released), I decided to reinstall my laptop, replacing the root and
-``/home`` `LVM` volumes with a single `Btrfs` partition and different
-subvolumes.
+I decided to reinstall my laptop with the latest beta of Ubuntu 16.04 (which
+has now been finalized and released), replacing the root and ``/home`` `LVM`
+volumes with a single `Btrfs` partition and different subvolumes.
 
-I also wanted to keep my full-disk encryption (FDE) setup, where swap, root and
-``/home`` partitions were encrypted, which I had on my previous Wily
-installation (using the installer encrypted setup choice).
+When reinstalling, I wanted to keep my full-disk encryption (FDE) setup, where
+swap, root and ``/home`` partitions were encrypted, which I had on my previous
+Wily installation (using the installer encrypted setup choice).
 
 Unfortunately `FDE` with `Btrfs` is not available out-of-the-box in the
 installer, since the "Encrypt the new Ubuntu installation for security" option
