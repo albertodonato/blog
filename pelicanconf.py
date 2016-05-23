@@ -38,9 +38,10 @@ LINKS = ()
 # Social links
 SOCIAL = (
     ('bitbucket', 'https://bitbucket.org/ack'),
-    ('launchpad', 'https://launchpad.net/~ack'),
     ('github', 'https://github.com/albertodonato'),
-    ('google+', 'https://plus.google.com/104904437381999058439/'))
+    ('launchpad', 'https://launchpad.net/~ack'),
+    ('google+', 'https://plus.google.com/104904437381999058439/'),
+    ('linkedin', 'https://www.linkedin.com/in/albertodonato'))
 
 DIRECT_TEMPLATES = (
     'index', 'categories', 'tags', 'authors', 'archives', 'search')
