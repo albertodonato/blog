@@ -53,7 +53,7 @@ installer:
 
 #. at the "Installation type" page, choose *"Something else"*
 
-#. cretea 3 partitions of the following types:
+#. create 3 partitions of the following types:
 
    #. EFI system partition (for ``/boot/efi``). It can be quite small, since
       only a few MB will be used.
