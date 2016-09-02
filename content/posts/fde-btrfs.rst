@@ -78,7 +78,7 @@ Creating the LVM is just a few commands:
 
   $ sudo vgcreate ubuntu /dev/mapper/sda3_crypt
   $ sudo lvcreate --name swap -L 16Gb ubuntu  # adjust size as needed
-  $ sudo lvcreate --name root -l 100%FREE  ubuntu
+  $ sudo lvcreate --name root -l 100%FREE ubuntu
 
 
 Installing Ubuntu
