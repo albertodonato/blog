@@ -37,8 +37,8 @@ LINKS = ()
 
 # Social links
 SOCIAL = (
-    ('bitbucket', 'https://bitbucket.org/ack'),
     ('github', 'https://github.com/albertodonato'),
+    ('bitbucket', 'https://bitbucket.org/ack'),
     ('launchpad', 'https://launchpad.net/~ack'),
     ('google+', 'https://plus.google.com/104904437381999058439/'),
     ('linkedin', 'https://www.linkedin.com/in/albertodonato'))
