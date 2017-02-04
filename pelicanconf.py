@@ -1,3 +1,5 @@
+import pelican
+
 AUTHOR = 'Alberto Donato'
 SITENAME = 'Significant white space'
 SITEURL = 'http://localhost:8000'
@@ -63,6 +65,10 @@ PLUGINS = ['headerid.headerid', 'tipue_search', 'sitemap']
 #
 # theme-specific settings
 #
+
+# Export pelican version to theme
+PELICAN_VERSION = pelican.__version__
+
 TAGLINE = 'this is where my brain dumps stuff'
 
 LICENSE_NAME = 'CC BY-SA 4.0'
