@@ -6,10 +6,9 @@ Full-disk encryption with Btrfs on Ubuntu Xenial
 :category: howto
 :tags: btrfs, encryption, filesystem, ubuntu
 
-`Btrfs <https://btrfs.wiki.kernel.org/>`_ is a copy-on-write (CoW) filesystem
+Btrfs_ is a copy-on-write (CoW) filesystem
 available in the standard Linux kernel, which provides advanced features like
-snapshotting and volume management, similarly to what `LVM
-<https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)>`_ provides.
+snapshotting and volume management, similarly to what LVM_  provides.
 
 I've been using `LVM` on my laptop for quite some time, to keep separate
 volumes for filesystem root and ``/home``, and containers.  `LVM` makes this
@@ -74,7 +73,7 @@ by the installer will be named ``/dev/mapper/sda3_crypt``.
 
 Creating the LVM is just a few commands:
 
-.. code-block:: console
+.. code:: console
 
   $ sudo vgcreate ubuntu /dev/mapper/sda3_crypt
   $ sudo lvcreate --name swap -L 16Gb ubuntu  # adjust size as needed
@@ -119,7 +118,7 @@ be run as `root`:
 mount the target root filesystem, and all pseudo-filesystems under it (to be
 able to enter a ``chroot`` later)
 
-.. code-block:: console
+.. code:: console
 
   # mount /dev/mapper/ubuntu-root /mnt -o subvol=@
   # mount -o bind /dev/ /mnt/dev
@@ -129,7 +128,7 @@ able to enter a ``chroot`` later)
 get the ``UUID`` of the encrypted partition (*not* the ``PARTUUID``) and create
 ``/etc/crypttab`` in the target root
 
-.. code-block:: console
+.. code:: console
 
   # blkid /dev/sda3
   /dev/sda3: UUID="<YOUR-UUID>" TYPE="crypto_LUKS" PARTUUID="f25a9621-045f-4d79-b0a0-489c5f7c0562"
@@ -138,7 +137,7 @@ get the ``UUID`` of the encrypted partition (*not* the ``PARTUUID``) and create
 ``chroot`` into the target root directory, to rebuild the kernel initramfs and
 grub config
 
-.. code-block:: console
+.. code:: console
 
   # chroot /mnt
   # mount /boot
@@ -150,7 +149,7 @@ grub config
 Now everything should be set up, so we can undo all mounts, including the
 target root filesystem.
 
-.. code-block:: console
+.. code:: console
 
   # service lvm2-lvmetad stop
   # umount /boot/efi
@@ -172,7 +171,7 @@ Recap of partition setup
 
 The install uses three partitions, of which two get mounted directly:
 
-.. code-block:: console
+.. code:: console
 
   $ mount | grep /dev/sda
   /dev/sda2 on /boot type ext2 (rw,relatime,block_validity,barrier,user_xattr,acl)
@@ -181,7 +180,7 @@ The install uses three partitions, of which two get mounted directly:
 The encrypted ``/dev/sda3`` partition will be visible through the `dm-crypt`
 volume:
 
-.. code-block:: console
+.. code:: console
 
   $ sudo cryptsetup status /dev/mapper/sda3_crypt
   /dev/mapper/sda3_crypt is active and is in use.
@@ -197,7 +196,7 @@ volume:
 Since the opened ``/dev/mapper/sda3_crypt`` volume contains an LVM setup, the
 kernel automatically makes volumes inside it available:
 
-.. code-block:: console
+.. code:: console
 
   $ sudo vgs
     VG     #PV #LV #SN Attr   VSize   VFree
@@ -211,7 +210,7 @@ Finally, volumes in the `Btrfs` partition, ``/dev/mapper/ubuntu-root``, are
 mounted. The installer automatically creates two subvolumes for ``/`` and
 ``/home``.
 
-.. code-block:: console
+.. code:: console
 
   $ mount | grep /dev/mapper/ubuntu-root
   /dev/mapper/ubuntu-root on / type btrfs (rw,relatime,ssd,space_cache,subvolid=257,subvol=/@)
@@ -228,15 +227,14 @@ Additions subvolumes
 --------------------
 
 Arbitrary additional subvolumes can be created in the filesystem, even under
-the root one. For example, tools like `LXC <https://linuxcontainers.org/>`_,
-`LXD <http://www.ubuntu.com/cloud/lxd>`_ and `Docker
-<https://www.docker.com/>`_ take advantage of the `Btrfs` capabilities to store
-container filesystems and images in subvolumes, so that they can be copied and
-snapshotted very quickly, without needing actual data copy.
+the root one. For example, tools like LXC_, LXD_, and Docker_ take advantage of
+the Btrfs capabilities to store container filesystems and images in subvolumes,
+so that they can be copied and snapshotted very quickly, without needing actual
+data copy.
 
 These are be listed among other subvolumes:
 
-.. code-block:: console
+.. code:: console
 
    $ sudo btrfs subvolume list /
    ID 257 gen 16908 top level 5 path @
@@ -247,3 +245,10 @@ These are be listed among other subvolumes:
    ID 563 gen 12996 top level 257 path var/lib/docker/btrfs/subvolumes/e8eb5e7f51f415678c3126ca447e2df32d74fe041d0782bfb39357ae6cf28cec
    ID 581 gen 16882 top level 257 path var/lib/lxd/images/6cb0ba80a5fe32357568a473cbaf69f14d26da0ba6b08f5b1bcde7053fc73757.btrfs
    
+
+
+.. _Btrfs: https://btrfs.wiki.kernel.org/
+.. _LVM: https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)
+.. _LXC: https://linuxcontainers.org/lxc/
+.. _LXD: https://linuxcontainers.org/lxd/
+.. _Docker: https://www.docker.com/

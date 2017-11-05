@@ -6,12 +6,11 @@ Twisted-like unit testing for asyncio
 :category: development
 :tags: asyncio, python, twisted, testing, unittest
 
-Recently I've been porting some code for a personal project from `Twisted
-<https://twistedmatrix.com/>`_ to the python3 builtin `asyncio
-<https://docs.python.org/3/library/asyncio.html>`_ library. The change is not
-as drastic as it might seem, since the two libraries share the same basic
-concepts (using just different names, e.g. Future vs Deferred, loop vs reactor)
-and the asyncio design is quite inspired by Twisted.
+Recently I've been porting some code for a personal project from Twisted_ to
+the python3 builtin asyncio_ library. The change is not as drastic as it might
+seem, since the two libraries share the same basic concepts (using just
+different names, e.g. Future vs Deferred, loop vs reactor) and the asyncio
+design is quite inspired by Twisted.
 
 One thing I found is that adapting the code was actually easier and quicker
 than changing unit tests.
@@ -26,7 +25,7 @@ stopping the reactor, and handles waiting for a ``Deferred`` when a test method
 returns one.  This makes it possible to add callbacks to it, that assert on the
 result of the asynchronous call. For example:
 
-.. code-block:: python
+.. code:: python
 
   # Twisted
   def test_async_call(self):
@@ -40,7 +39,7 @@ result of the asynchronous call. For example:
 will run the ``check`` callback when the deferred yields a result.
 The same can be written more concisely using ``@inlineCallbacks``:
       
-.. code-block:: python
+.. code:: python
 
   # Twisted
   @inlineCallbacks
@@ -56,7 +55,7 @@ unfortunately I didn't find much builtin support for it.  Looking at tests for
 libraries using asyncio, I noticed most of them deal with the event loop
 directly, running the method under test under it:
 
-.. code-block:: python
+.. code:: python
 
   # asyncio
   def test_async_call(self):
@@ -70,17 +69,16 @@ or when an asynchronous function calls others. In this case there might not be
 a single ``Future`` to wait for, and tests can easily become intricated.
 
 Luckily, it wasn't to hard to implement a test behavior like the one provided
-by Twisted with asyncio, so I created a `LoopTestCase
-<https://bitbucket.org/ack/toolrack/src/b8666d467a18b94338b6792dbe8dd4d6a6e3a7ba/toolrack/testing/async.py?at=master>`_
-which provides an event loop (derived from ``asyncio.test_utils.TestLoop``).
-The testcase class automatically wraps test methods so that if they return a
-``Future`` or are coroutines, the loop is run until until a result is returned.
+by Twisted with asyncio, so I created a LoopTestCase_ which provides an event
+loop (derived from ``asyncio.test_utils.TestLoop``).  The testcase class
+automatically wraps test methods so that if they return a ``Future`` or are
+coroutines, the loop is run until until a result is returned.
 
 In essence, the ``TestCase`` wraps the test method in its ``run()`` with a
 method that run the original method, and makes the event loop wait for it if
 it's asynchronous:
 
-.. code-block:: python
+.. code:: python
 
   def run(self, result=None):
       test_method = getattr(self, self._testMethodName)
@@ -100,7 +98,7 @@ it's asynchronous:
 
 So the test case above simply becomes something like:
 
-.. code-block:: python
+.. code:: python
 
   # asyncio
   def test_async_call(self):
@@ -122,7 +120,7 @@ possibly flaky.  Twisted provides ``twisted.internet.task.Clock`` which behaves
 like the reactor, but provides an ``advance()`` method to move the time
 forward.
 
-.. code-block:: python
+.. code:: python
 
   # Twisted
   def test_call_later(self):
@@ -141,7 +139,7 @@ To make this kind of test more concise, I enhanced the ``TestLoop`` used by
 ``LoopTestCase`` to do this automatically, via an ``advance()`` method.
 The change is actually pretty simple:
 
-.. code-block:: python
+.. code:: python
                 
   def advance(self, advance):
       '''Advance the loop time and schedule a run.'''
@@ -151,7 +149,7 @@ The change is actually pretty simple:
 
 With this addition, the previous test looks pretty much the same with asyncio:
 
-.. code-block:: python
+.. code:: python
 
   # asyncio
   def test_call_later(self):
@@ -167,7 +165,7 @@ periodically, since in this case there isn't a single ``Future`` that can be wai
 
 Let's consider, as an example, a class that executes a given function at periodic time intervals:
 
-.. code-block:: python
+.. code:: python
 
   # asyncio
   def test_periodic(self):
@@ -181,7 +179,12 @@ Let's consider, as an example, a class that executes a given function at periodi
       self.loop.advance(5)
       self.assertEqual(calls, [True, True, True])
 
-``PeriodicCall`` (again from my `ToolRack
-<https://bitbucket.org/ack/toolrack>`_ library) is basically a port of
+``PeriodicCall`` (again from my ToolRack_ library) is basically a port of
 Twisted's ``LoopingCall`` to asyncio. The ``start()`` method calls the function
 and schedules the next execution after the specified time.
+
+
+.. _Twisted: https://twistedmatrix.com/
+.. _asyncio: https://docs.python.org/3/library/asyncio.html
+.. _LoopTestCase: https://github.com/albertodonato/toolrack/blob/master/toolrack/testing/async.py
+.. _ToolRack: https://github.com/albertodonato/toolrack

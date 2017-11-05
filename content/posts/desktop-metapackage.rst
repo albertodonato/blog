@@ -34,13 +34,13 @@ and a few steps:
 
 #. Install it
 
-   .. code-block:: console
+   .. code:: console
 
      $ sudo apt install equivs
 
 #. Create a template control file for the package
 
-   .. code-block:: console
+   .. code:: console
 
      $ equivs-control ack-desktop.control
 
@@ -51,7 +51,7 @@ and a few steps:
    But the most important directive, as said, is ``Depends``. Here we must list
    all the packages we want to install.  The result is something like this:
 
-   .. code-block:: text
+   .. code:: text
 
      Package: ack-desktop
      Version: 1.0
@@ -68,7 +68,7 @@ and a few steps:
 
 #. Build the ``.deb`` package
 
-   .. code-block:: console
+   .. code:: console
 
      $ equivs-build ack-desktop.control
 
@@ -76,7 +76,7 @@ and a few steps:
 
 #. Install package and dependencies
 
-   .. code-block:: console
+   .. code:: console
 
      $ sudo dpkg -i ack-desktop_1.0_all.deb
      $ sudo apt install -f  # pull in all dependencies
@@ -113,7 +113,7 @@ A repository can be build and maintained with just few steps, using
 
 #. Install it
 
-   .. code-block:: console
+   .. code:: console
 
      $ sudo apt install reprepro
 
@@ -121,7 +121,7 @@ A repository can be build and maintained with just few steps, using
    and a ``conf/`` directory in it. Then create a ``distributions`` file in
    this directory, which will contain the configuration for reprepro:
 
-   .. code-block:: console
+   .. code:: console
 
      $ tree ubuntu/
      ubuntu/
@@ -132,7 +132,7 @@ A repository can be build and maintained with just few steps, using
 
 #. Edit the ``distributions`` file like this:
 
-   .. code-block:: text
+   .. code:: text
 
      Codename: unstable
      Architectures: source i386 amd64
@@ -145,7 +145,7 @@ A repository can be build and maintained with just few steps, using
 
 #. From the ``ubuntu/`` directory, import the package created before
 
-   .. code-block:: console
+   .. code:: console
 
      $ reprepro includedeb unstable ../ack-desktop_1.0_all.deb
 
@@ -164,7 +164,7 @@ synced by it. Since metapackages have no real content, they're very small.
 
 All you need is to create a repository entry
 
-.. code-block:: console
+.. code:: console
 
   $ echo "deb file:///home/ack/repo/ubuntu/ unstable main" | sudo tee /etc/apt/sources.list.d/local.list
   deb file:///home/ack/repo/ubuntu/ unstable main
@@ -174,7 +174,7 @@ with the correct path to the ``ubuntu/`` directory.
 At this point, you can just install your package with ``apt``, and it will
 automatically pull dependencies:
 
-.. code-block:: console
+.. code:: console
 
   $ sudo apt update
   ...
