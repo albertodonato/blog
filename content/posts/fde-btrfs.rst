@@ -223,8 +223,8 @@ Note that since the device is an `SSD`, `Btrfs` enables optimizations for it
 (visible in the ``ssd`` mount option).
 
 
-Additions subvolumes
---------------------
+Additional subvolumes
+---------------------
 
 Arbitrary additional subvolumes can be created in the filesystem, even under
 the root one. For example, tools like LXC_, LXD_, and Docker_ take advantage of
