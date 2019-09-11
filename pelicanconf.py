@@ -40,8 +40,9 @@ LINKS = ()
 # Social links
 SOCIAL = (
     ('github', 'https://github.com/albertodonato'),
-    ('launchpad', 'https://launchpad.net/~ack'),
-    ('linkedin', 'https://www.linkedin.com/in/albertodonato'))
+    ('linkedin', 'https://www.linkedin.com/in/albertodonato'),
+    ('twitter', 'https://twitter.com/AlbDnt'),
+)
 
 DIRECT_TEMPLATES = (
     'index', 'categories', 'tags', 'authors', 'archives', 'search')
