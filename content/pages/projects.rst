@@ -6,6 +6,7 @@ Projects
 
 Here's a few open source projects I maintain (with different levels of activity):
 
+- h2static_: a minimal static HTTP server with support for HTTP/2 and TLS.
 - lmetrics_: a Prometheus exporter for metrics parsed from log files
 - lxstats_: a Python library to access process and system stats from /proc
   and /sys on Linux
@@ -18,6 +19,7 @@ Here's a few open source projects I maintain (with different levels of activity)
   and tools
 
 
+.. _h2static: https://github.com/albertodonato/h2static
 .. _lmetrics: https://github.com/albertodonato/lmetrics
 .. _lxstats: https://github.com/albertodonato/lxstats
 .. _process-stats-exporter: https://github.com/albertodonato/process-stats-exporter
