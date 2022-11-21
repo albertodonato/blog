@@ -73,6 +73,8 @@ TAGLINE = 'this is where my brain dumps stuff'
 LICENSE_NAME = 'CC BY-SA 4.0'
 LICENSE_URL = 'https://creativecommons.org/licenses/by-sa/4.0/'
 
+MASTODON_LINK = "https://hachyderm.io/@ack"
+
 PAGES_ON_MENU = True
 INDEXES_ON_MENU = True
 
