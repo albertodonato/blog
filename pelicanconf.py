@@ -42,7 +42,6 @@ SOCIAL = (
     ('github', 'https://github.com/albertodonato'),
     ('linkedin', 'https://www.linkedin.com/in/albertodonato'),
     ('mastodon', 'https://hackyderm.io/@ack'),
-    ('twitter', 'https://twitter.com/AlbDnt'),
 )
 
 DIRECT_TEMPLATES = (
