@@ -4,20 +4,11 @@ About
 
 :index: 0
 
-I'm Alberto Donato, and I'm a Software Engineer from Italy.
+I'm Alberto Donato, a Software Engineer from Italy.
 
-I work at Canonical_ on the MAAS_ team.
+I' interested in web applications, databases (PostgreSQL specifically) and
+everything cloud-related and have been working in these areas for many years.
 
-I mostly work with Python, which I love because it helps to write clean and
-concise code, but I also like to try out different languages.  I also use Go
-and have done development in C in the past.
-
-I'm interested in web applications, databases (PostgreSQL specifically) and
-everything cloud-related, but also embedded systems (I have been working on
-Linux kernel drivers and operating system-level tools in the past).
+I mostly work with Python and Go but always like to learn new languages.
 
 I'm an open source enthusiast and Linux user since many years.
-
-
-.. _Canonical: https://www.canonical.com/
-.. _MAAS: https://maas.io/
