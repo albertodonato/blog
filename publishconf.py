@@ -11,8 +11,6 @@ DOMAIN = 'https://albertodonato.net/'
 SITEURL = DOMAIN + 'blog'
 FEED_DOMAIN = SITEURL
 
-RELATIVE_URLS = False
-
 #
 # theme-specific settings
 #
