@@ -1,7 +1,7 @@
 import pelican
 
 AUTHOR = "Alberto Donato"
-SITENAME = "Significant white space"
+SITENAME = "Alberto Donato"
 SITEURL = "http://localhost:8000"
 
 RELATIVE_URLS = True
@@ -44,7 +44,7 @@ SOCIAL = (
     ("mastodon", "https://hackyderm.io/@ack"),
 )
 
-DIRECT_TEMPLATES = ("index", "categories", "tags", "authors", "archives", "search")
+DIRECT_TEMPLATES = ("index", "categories", "tags", "authors", "archives")
 
 USE_FOLDER_AS_CATEGORY = False
 DEFAULT_CATEGORY = "misc"
@@ -65,8 +65,6 @@ PLUGINS = ["sitemap"]
 
 # Export pelican version to theme
 PELICAN_VERSION = pelican.__version__
-
-TAGLINE = "this is where my brain dumps stuff"
 
 LICENSE_NAME = "CC BY-SA 4.0"
 LICENSE_URL = "https://creativecommons.org/licenses/by-sa/4.0/"
