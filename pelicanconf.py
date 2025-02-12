@@ -74,8 +74,6 @@ MASTODON_LINK = "https://hachyderm.io/@ack"
 PAGES_ON_MENU = True
 INDEXES_ON_MENU = True
 
-LOCAL_RESOURCES = True
-
 #
 # plugin: sitemap
 #
