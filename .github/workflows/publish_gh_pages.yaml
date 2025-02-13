@@ -8,20 +8,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: blog
     steps:
       - name: Repository checkout
         uses: actions/checkout@v4
-        with:
-          path: blog
 
       - name: Theme checkout
         uses: actions/checkout@v4
         with:
           repository: albertodonato/pelican-chemistry
-          path: theme
+          path: theme/
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -34,13 +29,13 @@ jobs:
 
       - name: Build static files
         run: |
-          tox run -e publish
+          tox run -e publish -- -e THEME=theme/
 
       - name: Upload static files as artifact
         id: deployment
         uses: actions/upload-pages-artifact@v3
         with:
-          path: blog/output/
+          path: output/
 
   deploy:
     runs-on: ubuntu-latest
