@@ -49,9 +49,12 @@ DIRECT_TEMPLATES = ("index", "categories", "tags", "authors", "archives")
 USE_FOLDER_AS_CATEGORY = False
 DEFAULT_CATEGORY = "misc"
 
-STATIC_PATHS = ["images", "files", "extra/robots.txt"]
+STATIC_PATHS = ["images", "files", "extra/favicon.ico", "extra/robots.txt"]
 
-EXTRA_PATH_METADATA = {"extra/robots.txt": {"path": "robots.txt"}}
+EXTRA_PATH_METADATA = {
+    "extra/favicon.ico": {"path": "favicon.ico"},
+    "extra/robots.txt": {"path": "robots.txt"},
+}
 
 THEME = "../pelican-chemistry"
 
@@ -82,3 +85,9 @@ SITEMAP = {
     "priorities": {"articles": 0.5, "indexes": 0.5, "pages": 0.5},
     "changefreqs": {"articles": "monthly", "indexes": "daily", "pages": "monthly"},
 }
+
+#
+# theme-specific settings
+#
+
+FAVICON_URL = "/favicon.ico"

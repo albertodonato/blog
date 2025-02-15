@@ -7,15 +7,11 @@ from pelicanconf import *
 
 DELETE_OUTPUT_DIRECTORY = True
 
-DOMAIN = "https://albertodonato.net/"
-
-SITEURL = DOMAIN + "blog"
+SITEURL = "https://blog.albertodonato.net/"
 FEED_DOMAIN = SITEURL
 
 #
 # theme-specific settings
 #
-SEARCH_URL = "search"
 
-FAVICON_URL = DOMAIN + "favicon.png"
 GOOGLE_ANALYTICS = "G-C9NP89895H"
