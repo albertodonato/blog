@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import pelican
 
 AUTHOR = "Alberto Donato"
@@ -49,11 +51,12 @@ DIRECT_TEMPLATES = ("index", "categories", "tags", "authors", "archives")
 USE_FOLDER_AS_CATEGORY = False
 DEFAULT_CATEGORY = "misc"
 
-STATIC_PATHS = ["images", "files", "extra/favicon.ico", "extra/robots.txt"]
+extra_paths = [path.relative_to("content") for path in Path("content/extra").iterdir()]
 
+STATIC_PATHS = ["images", "files", *extra_paths]
 EXTRA_PATH_METADATA = {
-    "extra/favicon.ico": {"path": "favicon.ico"},
-    "extra/robots.txt": {"path": "robots.txt"},
+    str(path): {"path": path.name}
+    for path in extra_paths
 }
 
 THEME = "../pelican-chemistry"
@@ -90,4 +93,4 @@ SITEMAP = {
 # theme-specific settings
 #
 
-FAVICON_URL = "/favicon.ico"
+FAVICON_URL = "/favicon.png"
