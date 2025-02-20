@@ -61,8 +61,6 @@ EXTRA_PATH_METADATA = {
 
 THEME = "../pelican-chemistry"
 
-PLUGIN_PATHS = ["../pelican-plugins"]
-
 PLUGINS = ["sitemap"]
 
 #

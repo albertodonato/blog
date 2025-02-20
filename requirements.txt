@@ -25,6 +25,10 @@ mdurl==0.1.2
 ordered-set==4.1.0
     # via pelican
 pelican==4.11.0
+    # via
+    #   -r requirements.in
+    #   pelican-sitemap
+pelican-sitemap==1.1.0
     # via -r requirements.in
 pygments==2.18.0
     # via
