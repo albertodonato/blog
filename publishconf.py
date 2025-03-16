@@ -7,7 +7,7 @@ from pelicanconf import *
 
 DELETE_OUTPUT_DIRECTORY = True
 
-SITEURL = "https://blog.albertodonato.net/"
+SITEURL = "https://blog.albertodonato.net"
 FEED_DOMAIN = SITEURL
 
 #
